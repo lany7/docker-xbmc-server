@@ -11,17 +11,17 @@
 	</musiclibrary>
 	<videodatabase>
 		<type>mysql</type>
-		<host>192.168.1.50</host>
-		<port>3306</port>
-		<user>xbmc</user>
-		<pass>xbmc</pass>
+		<host></host>
+		<port></port>
+		<user></user>
+		<pass></pass>
 	</videodatabase>
 	<musicdatabase>
 		<type>mysql</type>
-		<host>192.168.1.50</host>
-		<port>3306</port>
-		<user>xbmc</user>
-		<pass>xbmc</pass>
+		<host></host>
+		<port></port>
+		<user></user>
+		<pass></pass>
 	</musicdatabase>
 	<videoscanner>
 		<ignoreerrors>true</ignoreerrors> <!-- Set to true to silently ignore errors while scanning videos. This prevents the error dialogue box, so you don't have to keep hitting "yes" to keep scanning.-->
