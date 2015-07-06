@@ -36,7 +36,7 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 
 # Install java, git wget and supervisor
 RUN apt-get update && \
-	apt-get -y install git openjdk-7-jre-headless supervisor xmlstarlet
+	apt-get -y install git xmlstarlet
 
 # Download XBMC, pick version from github
 RUN git clone --depth 1 --branch "Isengard" https://github.com/xbmc/xbmc.git 
