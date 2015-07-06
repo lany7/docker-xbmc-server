@@ -73,5 +73,3 @@ RUN xmlstarlet ed -L -u "//advancedsettings/musicdatabase/pass" -v "{$MYSQL_PASS
 
 #Eventserver and webserver respectively.
 EXPOSE 9777/udp 8089/tcp
-
-ENTRYPOINT ["/usr/bin/supervisord"]
