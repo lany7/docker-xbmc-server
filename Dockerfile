@@ -109,6 +109,13 @@ RUN apt-get install -y build-essential gawk pmount libtool nasm yasm automake cm
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists /usr/share/man /usr/share/doc
 
+ENV MYSQL_IP **ChangeMe**
+ENV MYSQL_PORT 3306
+ENV MYSQL_USER xbmc
+ENV MYSQL_PASS xbmc
+
+ADD xbmcdata/userdata/advancedsettings.xml /opt/kodi-server/share/kodi/portable_data/advancedsettings.xml
+
 #Eventserver and webserver respectively.
 EXPOSE 9777/udp 8089/tcp
 
