@@ -39,7 +39,7 @@ RUN apt-get update && \
 	apt-get -y install git xmlstarlet
 
 # Download XBMC, pick version from github
-RUN git clone --depth 1 --branch "Isengard" https://github.com/xbmc/xbmc.git 
+RUN git clone --depth 1 --branch "14.0-Helix" https://github.com/xbmc/xbmc.git 
 
 # Add patches and xbmc-server files
 ADD src/fixcrash.diff xbmc/fixcrash.diff
