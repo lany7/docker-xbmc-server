@@ -44,7 +44,7 @@ RUN git clone --depth 1 --branch ${KODI_BRANCH} https://github.com/xbmc/xbmc.git
 
 # Add patches and xbmc-server files
 ADD src/fixcrash.diff xbmc/fixcrash.diff
-ADD src/5071.patch xbmc/5071.patch
+ADD src/5071${KODI_BRANCH}.patch xbmc/5071.patch
 ADD src/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Apply patches:
