@@ -52,14 +52,14 @@ RUN cd xbmc && \
  git apply fixcrash.diff && \
  git apply 5071.patch
 
-RUN mkdir -p /opt/kodi-server/share/kodi/portable_data/
+RUN mkdir -p /opt/kodi-server/share/kodi/portable_data/userdata/
 
 ENV MYSQL_IP **ChangeMe**
 ENV MYSQL_PORT 3306
 ENV MYSQL_USER xbmc
 ENV MYSQL_PASS xbmc
 
-ADD xbmcdata/userdata/advancedsettings.xml /opt/kodi-server/share/kodi/portable_data/advancedsettings.xml
+ADD xbmcdata/userdata/advancedsettings.xml /opt/kodi-server/share/kodi/portable_data/userdata/advancedsettings.xml
 
 ADD run.sh run.sh
 RUN chmod +x run.sh
