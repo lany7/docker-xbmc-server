@@ -117,6 +117,10 @@ ENV MYSQL_PASS xbmc
 
 ADD xbmcdata/userdata/advancedsettings.xml /opt/kodi-server/share/kodi/portable_data/userdata/advancedsettings.xml
 
+ADD run.sh run.sh
+RUN chmod +x run.sh
+CMD ./run.sh
+
 #Eventserver and webserver respectively.
 EXPOSE 9777/udp 8089/tcp
 
