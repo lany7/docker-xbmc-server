@@ -30,7 +30,7 @@ RUN dpkg-reconfigure locales
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
-ENV KODI_BRANCH 15.0rc1-Isengard
+ENV KODI_BRANCH 14.0-Helix
 
 # Set Terminal to non interactive
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
