@@ -30,6 +30,7 @@ RUN dpkg-reconfigure locales
 ENV LANGUAGE en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
+ENV KODI_BRANCH 15.0rc1-Isengard
 
 # Set Terminal to non interactive
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
@@ -39,7 +40,7 @@ RUN apt-get update && \
 	apt-get -y install git openjdk-7-jre-headless supervisor
 
 # Download XBMC, pick version from github
-RUN git clone --depth 1 --branch "14.0-Helix" https://github.com/xbmc/xbmc.git 
+RUN git clone --depth 1 --branch ${KODI_BRANCH} https://github.com/xbmc/xbmc.git 
 
 # Add patches and xbmc-server files
 ADD src/fixcrash.diff xbmc/fixcrash.diff
@@ -114,17 +115,7 @@ ENV MYSQL_PORT 3306
 ENV MYSQL_USER xbmc
 ENV MYSQL_PASS xbmc
 
-ADD xbmcdata/userdata/advancedsettings.xml /opt/kodi-server/share/kodi/portable_data/advancedsettings.xml
-
-RUN xmlstarlet ed -L -u "//advancedsettings/videodatabase/host" -v "{$MYSQL_IP}" /opt/kodi-server/share/kodi/portable_data/userdata/advancedsettings.xml
-RUN xmlstarlet ed -L -u "//advancedsettings/videodatabase/port" -v "{$MYSQL_PORT}" /opt/kodi-server/share/kodi/portable_data/userdata/advancedsettings.xml
-RUN xmlstarlet ed -L -u "//advancedsettings/videodatabase/user" -v "{$MYSQL_USER}" /opt/kodi-server/share/kodi/portable_data/userdata/advancedsettings.xml
-RUN xmlstarlet ed -L -u "//advancedsettings/videodatabase/pass" -v "{$MYSQL_PASS}" /opt/kodi-server/share/kodi/portable_data/userdata/advancedsettings.xml
-
-RUN xmlstarlet ed -L -u "//advancedsettings/musicdatabase/host" -v "{$MYSQL_IP}" /opt/kodi-server/share/kodi/portable_data/userdata/advancedsettings.xml
-RUN xmlstarlet ed -L -u "//advancedsettings/musicdatabase/port" -v "{$MYSQL_PORT}" /opt/kodi-server/share/kodi/portable_data/userdata/advancedsettings.xml
-RUN xmlstarlet ed -L -u "//advancedsettings/musicdatabase/user" -v "{$MYSQL_USER}" /opt/kodi-server/share/kodi/portable_data/userdata/advancedsettings.xml
-RUN xmlstarlet ed -L -u "//advancedsettings/musicdatabase/pass" -v "{$MYSQL_PASS}" /opt/kodi-server/share/kodi/portable_data/userdata/advancedsettings.xml
+ADD xbmcdata/userdata/advancedsettings.xml /opt/kodi-server/share/kodi/portable_data/userdata/advancedsettings.xml
 
 #Eventserver and webserver respectively.
 EXPOSE 9777/udp 8089/tcp
